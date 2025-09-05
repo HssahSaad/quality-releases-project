@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "968b3a18-cc72-48a2-9b6b-e8619b4aaca8",
+		"_postman_id": "f2975dc3-594d-4532-a92d-6976de17d179",
 		"name": "Starter APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32067988"
 	},
 	"item": [
 		{
-			"name": "Create Author",
+			"name": "Create Author Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "38b1717c-45ae-477f-8dae-8e889ba381d5",
 						"exec": [
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
@@ -58,12 +58,11 @@
 			"response": []
 		},
 		{
-			"name": "Get All Authors",
+			"name": "Get All Authors Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "af3cb111-e3ac-4174-b8ca-7f4127a0285d",
 						"exec": [
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
@@ -94,6 +93,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

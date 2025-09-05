@@ -11,7 +11,7 @@ resource "azurerm_network_security_group" "nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5000"
-    source_address_prefix      = "${var.address_prefix_test}"
+    source_address_prefix      = var.address_prefix_test[0]
     destination_address_prefix = "*"
   }
   security_rule {
@@ -27,6 +27,6 @@ resource "azurerm_network_security_group" "nsg" {
     }
 }
 resource "azurerm_subnet_network_security_group_association" "test" {
-    subnet_id                 = "${var.subnet_id}"
-    network_security_group_id = azurerm_network_security_group.nsg.id
+    subnet_id                 = "/subscriptions/96587dff-f596-4825-9e39-9563f9ff9df0/resourceGroups/Azuredevops/providers/Microsoft.Network/virtualNetworks/myApplication-NET/subnets/myApplication-NET-sub"
+    network_security_group_id = "/subscriptions/96587dff-f596-4825-9e39-9563f9ff9df0/resourceGroups/Azuredevops/providers/Microsoft.Network/networkSecurityGroups/myApplication-NSG"
 }
