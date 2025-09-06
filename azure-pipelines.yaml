@@ -45,7 +45,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        backendServiceArm: '$(azureServiceConnectionId)'
+        backendServiceArm: 'AzureServiceConnection'
         backendAzureRmResourceGroupName: $(resource_group)
         backendAzureRmStorageAccountName: $(storage_account_name)
         backendAzureRmContainerName: $(container_name)
@@ -252,6 +252,7 @@ stages:
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
 
 
 
