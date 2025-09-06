@@ -20,6 +20,10 @@ variables:
   value: $(System.DefaultWorkingDirectory)
 - name: environmentName
   value: 'test'
+- name: subscriptionId
+  value: '96587dff-f596-4825-9e39-9563f9ff9df0'
+- name: tenantId
+  value: 'defd7480-7b38-4ae4-930a-8c6360058c87'
 
 stages:
 #--------------------------------------------#  
@@ -255,6 +259,7 @@ stages:
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
 
 
 
