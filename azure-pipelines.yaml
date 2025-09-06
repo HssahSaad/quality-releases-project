@@ -48,13 +48,16 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
+          export ARM_CLIENT_ID=$(armClientId)
+          export ARM_CLIENT_SECRET=$(armClientSecret)
+          export ARM_SUBSCRIPTION_ID=$(subscriptionId)
+          export ARM_TENANT_ID=$(tenantId)
+          
           terraform init \
             -backend-config="storage_account_name=hssahcloudshellsa" \
             -backend-config="container_name=tfstate" \
             -backend-config="key=test.terraform.tfstate" \
-            -backend-config="resource_group_name=HssahRG" \
-            -backend-config="subscription_id=$(subscriptionId)" \
-            -backend-config="tenant_id=$(tenantId)"
+            -backend-config="resource_group_name=HssahRG"
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
 
 
@@ -259,6 +262,7 @@ stages:
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
 
 
 
