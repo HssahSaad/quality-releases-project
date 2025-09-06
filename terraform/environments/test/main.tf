@@ -5,7 +5,7 @@ terraform {
     storage_account_name = "YOUR_STORAGE_ACCOUNT_NAME_HERE"
     container_name       = "YOUR_CONTAINER_NAME_HERE"
     key                  = "test.terraform.tfstate"
-    use_azuread_auth     = true
+    #use_azuread_auth     = true
     # resource_group_name = "Azuredevops"
   }
 }
