@@ -39,18 +39,19 @@ stages:
     
     # Run Terraform Init on the pipeline agent 
     # ToDo: Replace the resource group name, storage account name, and container name below
-    - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV3@3
+    - task: Bash@3
       displayName: 'Terraform init'
       inputs:
-        provider: 'azurerm'
-        command: 'init'
+        targetType: 'inline'
+        script: |
+          terraform init \
+            -backend-config="storage_account_name=hssahcloudshellsa" \
+            -backend-config="container_name=tfstate" \
+            -backend-config="key=test.terraform.tfstate" \
+            -backend-config="resource_group_name=HssahRG" \
+            -backend-config="subscription_id=$(subscriptionId)" \
+            -backend-config="tenant_id=$(tenantId)"
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        backendServiceArm: 'AzureServiceConnection'
-        backendAzureRmResourceGroupName: 'HssahRG'
-        backendAzureRmStorageAccountName: 'hssahcloudshellsa'
-        backendAzureRmContainerName: 'tfstate'
-        backendAzureRmKey: 'test.terraform.tfstate'
-        backendAzureRmUseMsi: false
 
 
     - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV3@3
@@ -254,6 +255,7 @@ stages:
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
 
 
 
