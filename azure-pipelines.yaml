@@ -11,6 +11,7 @@ trigger:
 pool: 
   vmImage: 'ubuntu-latest'
 variables:
+- group: TerraformSecrets
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
   azureServiceConnectionId: 'myServiceConnection'
