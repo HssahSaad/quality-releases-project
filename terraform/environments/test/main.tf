@@ -2,8 +2,8 @@
 
 terraform {
   backend "azurerm" {
-    storage_account_name = "YOUR_STORAGE_ACCOUNT_NAME_HERE"
-    container_name       = "YOUR_CONTAINER_NAME_HERE"
+    storage_account_name = var.storage_account_name
+    container_name       = var.container_name
     key                  = "test.terraform.tfstate"
     use_azuread_auth     = true
     # resource_group_name = "Azuredevops"

@@ -10,7 +10,7 @@
          <collectionProp name="Arguments.arguments">
     <elementProp name="APPSERVICEURL" elementType="Argument">
       <stringProp name="Argument.name">APPSERVICEURL</stringProp>
-      <stringProp name="Argument.value">hssah-ml-1755027380.azurewebsites.net</stringProp>
+      <stringProp name="Argument.value">fakerestapi.azurewebsites.net</stringProp>
       <stringProp name="Argument.metadata">=</stringProp>
       </elementProp>
   </collectionProp>
@@ -24,10 +24,10 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.num_threads">30</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">40</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">60</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
@@ -49,7 +49,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/Activities</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/Activities</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -60,42 +60,32 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <url>true</url>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
+        <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Save Results" enabled="true">
+  <stringProp name="filename">/home/hssah/cd1807-Project-Ensuring-Quality-Releases/automatedtesting/jmeter/results.jtl</stringProp>
+  <objProp>
+    <name>saveConfig</name>
+    <value class="SampleSaveConfiguration">
+      <time>true</time>
+      <latency>true</latency>
+      <timestamp>true</timestamp>
+      <success>true</success>
+      <label>true</label>
+      <code>true</code>
+      <message>true</message>
+      <threadName>true</threadName>
+      <dataType>true</dataType>
+      <assertions>true</assertions>
+      <bytes>true</bytes>
+      <sentBytes>true</sentBytes>
+      <url>true</url>
+      <threadCounts>true</threadCounts>
+      <idleTime>true</idleTime>
+      <connectTime>true</connectTime>
+<subresults>true</subresults>
+    </value>
+  </objProp>
+</ResultCollector>
+
         <hashTree/>
       </hashTree>
     </hashTree>
