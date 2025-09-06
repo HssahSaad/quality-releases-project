@@ -45,11 +45,12 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        backendServiceArm: 'AzureServiceConnection'
+        backendServiceArm: 'TerraformSPConnection'        # اسم الـ Service Connection الجديد
         backendAzureRmResourceGroupName: 'HssahRG'
-        backendAzureRmStorageAccountName: 'hssahcloudshellsa'
+        backendAzureRmStorageAccountName: 'tfstate8661eca1ad'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'test.terraform.tfstate'
+
 
     - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV3@3
       displayName: Terraform validate
@@ -252,6 +253,7 @@ stages:
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
 
 
 
