@@ -47,7 +47,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         backendServiceArm: 'AzureServiceConnection'
         backendAzureRmResourceGroupName: 'HssahRG'
-        backendAzureRmStorageAccountName: 'tfstate8661eca1ad'
+        backendAzureRmStorageAccountName: 'hssahcloudshellsa'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'test.terraform.tfstate'
         backendAzureRmUseMsi: false
@@ -254,6 +254,7 @@ stages:
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
 
 
 
